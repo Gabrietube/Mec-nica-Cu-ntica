@@ -1,10 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-.main-div__nav, .main-nav {
-    display: flex;
-    justify-content: center;
-    justify-content:space-around;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #010314;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+
+    /* Fondo con movimiento */
+    background:
+        radial-gradient(circle at 75% 25%, rgba(40, 60, 180, 0.15), transparent 25%),
+        radial-gradient(circle at 20% 80%, rgba(80, 30, 180, 0.12), transparent 30%),
+        #010314;
+
+    animation: fondoMovimiento 10s ease-in-out infinite alternate;
+}
+
+  
+
+@keyframes fondoMovimiento {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 50% 30%;
+    }
+
+    100% {
+        background-position: 100% 60%;
+    }
+}
+
+
+.header {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+
+    animation: aparecerDesdeArriba 1s ease-out forwards;
+}
+
+.main-div__nav,
+.main-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
 
 ul {
     display: flex;
@@ -17,165 +71,800 @@ li {
 
 .main-nav__list-menu {
     padding: 6px 8px;
+
     border-width: 1px;
     border-style: solid;
     border-color: #ffffff8f;
     border-radius: 100px;
+
     background-color: #01020e;
     color: #ffffff;
 
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
 }
+
+.main-nav__list-menu:hover {
+    transform: translateY(-3px);
+
+    border-color: #ffffff;
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.15),
+        0 0 25px rgba(70, 100, 255, 0.15);
+}
+
+/* =========================================================
+   LINKS DEL MENÚ
+   ========================================================= */
 
 .menu_item {
     display: inline-block;
+
     padding: 8px 30px;
-    background-color: #00000000;
+
+    background-color: transparent;
     color: white;
+
     text-decoration: none;
     font-family: 'Inter', sans-serif;
 
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease,
+        text-shadow 0.3s ease;
 }
 
-body {
-    background-color: #010314;
+.menu_item:hover {
+    color: #aebaff;
+
+    transform: translateY(-2px);
+
+    text-shadow:
+        0 0 8px rgba(130, 150, 255, 0.8),
+        0 0 20px rgba(100, 120, 255, 0.4);
 }
+
+/* =========================================================
+   PRIMERA SECCIÓN
+   ========================================================= */
 
 .title-one__div {
     display: flex;
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
+
     height: 65vh;
+
+    animation: aparecer 1.2s ease-out forwards;
 }
+
+/* =========================================================
+   TÍTULO PRINCIPAL
+   ========================================================= */
 
 .title-one__div__h1 {
     margin-top: 0;
     margin-right: 400px;
+
     color: white;
+
     font-family: 'Inter', sans-serif;
     font-weight: bold;
     font-size: 96px;
+
+    /* Animación de entrada */
+    animation:
+        entrarDesdeIzquierda 1.2s ease-out forwards,
+        respirarTitulo 5s ease-in-out 1.5s infinite;
+
+    transition:
+        text-shadow 0.4s ease,
+        transform 0.4s ease;
 }
+
+.title-one__div__h1:hover {
+    transform: scale(1.02);
+
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(80, 100, 255, 0.5),
+        0 0 60px rgba(80, 100, 255, 0.2);
+}
+
+/* =========================================================
+   SUBTÍTULO
+   ========================================================= */
 
 .title-one__div__h2 {
     margin-top: 0;
     margin-right: 1225px;
+
     color: white;
+
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 400;
+
     letter-spacing: 2px;
+
+    animation:
+        entrarDesdeIzquierda 1s ease-out 0.3s both;
+
+    transition:
+        letter-spacing 0.4s ease,
+        text-shadow 0.4s ease;
 }
+
+.title-one__div__h2:hover {
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+/* =========================================================
+   SEGUNDO SUBTÍTULO
+   ========================================================= */
+
 .title-one__div__h2--b {
     margin-top: 0;
     margin-right: 1275px;
+
     color: white;
+
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: bold;
+
+    animation:
+        entrarDesdeIzquierda 1s ease-out 0.5s both;
 }
+
+/* =========================================================
+   PÁRRAFO
+   ========================================================= */
 
 .title-one__div__p {
     margin-top: 0;
     margin-left: 300px;
     margin-right: 1000px;
+
     color: white;
+
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     font-weight: 400;
+
+    line-height: 1.6;
+
+    animation:
+        aparecer 1.2s ease-out 0.7s both;
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
 }
+
+.title-one__div__p:hover {
+    transform: translateX(5px);
+}
+
+/* =========================================================
+   BOTÓN EXPLORE
+   ========================================================= */
 
 .menu--b_item {
     display: inline-block;
+
     padding: 10px 60px;
+
     margin-right: 1200px;
+
     position: relative;
-    bottom: 100px; 
+    bottom: 100px;
+
     background-color: #fffdfd;
     color: #010314;
+
     border-radius: 100px;
+
     text-decoration: none;
+
     font-family: 'Inter', sans-serif;
     font-size: 24px;
+    font-weight: 500;
+
+    animation:
+        aparecerDesdeAbajo 1s ease-out 1s both,
+        flotacionBoton 4s ease-in-out 2s infinite;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
 }
+
+.menu--b_item:hover {
+    transform: scale(1.08) translateY(-5px);
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.5),
+        0 0 30px rgba(100, 120, 255, 0.5),
+        0 0 60px rgba(100, 120, 255, 0.2);
+}
+
+.menu--b_item:active {
+    transform: scale(0.96);
+}
+
+/* =========================================================
+   IMAGEN DEL AGUJERO NEGRO
+   ========================================================= */
 
 .div__img {
     display: block;
+
     margin-left: auto;
+
     position: relative;
+
     bottom: 1120px;
+
     z-index: -1;
+
+    animation:
+        agujeroEntrada 1.5s ease-out forwards,
+        agujeroNegro 4s ease-in-out 1.5s infinite alternate;
+    
+    transition:
+        filter 0.5s ease,
+        transform 0.5s ease;
 }
+
+.div__img:hover {
+    animation-play-state: paused;
+
+    filter:
+        brightness(1.2)
+        drop-shadow(0 0 20px rgba(90, 110, 255, 0.5))
+        drop-shadow(0 0 50px rgba(80, 80, 255, 0.2));
+
+    transform: scale(1.04);
+}
+
+/* =========================================================
+   SEGUNDA SECCIÓN
+   ========================================================= */
 
 .title-two {
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
     align-items: center;
+
     height: 40vh;
+
     margin-top: -370px;
+
+    animation:
+        aparecer 1.2s ease-out;
 }
+
+/* =========================================================
+   IMAGEN DE LA SEGUNDA SECCIÓN
+   ========================================================= */
 
 .title-two__img {
     display: flex;
+
     flex-direction: row;
+
     margin-left: auto;
+
     position: relative;
+
     right: 1200px;
     top: 330px;
+
     padding: 20px;
+
     border-width: 1px;
     border-color: #fffdfd31;
     border-style: solid;
+
+    transition:
+        transform 0.5s ease,
+        border-color 0.5s ease,
+        box-shadow 0.5s ease;
+
+    animation:
+        entrarDesdeIzquierda 1.2s ease-out 0.5s both,
+        imagenFlotante 5s ease-in-out 2s infinite;
 }
 
-.title-two__h1 {
-    margin-left: 1000px;
-    margin-right: 400px;
-    position: relative;
-    bottom: 1050px;
-    color: white;
-    font-family: 'Inter', sans-serif;
-    font-size: 92px;
-    font-weight: medium;
+.title-two__img:hover {
+    transform: scale(1.05) translateY(-10px);
+
+    border-color: #ffffff8a;
+
+    box-shadow:
+        0 0 20px rgba(120, 140, 255, 0.2),
+        0 0 50px rgba(100, 120, 255, 0.1);
 }
+
+.title-two__img img {
+    display: block;
+
+    max-width: 100%;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.title-two__img:hover img {
+    transform: scale(1.03);
+
+    filter:
+        brightness(1.15)
+        contrast(1.05);
+}
+/* =========================================================
+   TÍTULO DE LA SEGUNDA SECCIÓN
+   ========================================================= */
 
 .title-two__h2 {
     margin-bottom: 1000px;
     margin-left: 800px;
+
     color: white;
+
     font-family: 'Inter', sans-serif;
     font-size: 32.4px;
     font-weight: 400;
+
     letter-spacing: 2px;
+
+    animation:
+        entrarDesdeDerecha 1.2s ease-out 0.4s both;
+
+    transition:
+        letter-spacing 0.4s ease,
+        text-shadow 0.4s ease,
+        transform 0.4s ease;
 }
+
+.title-two__h2:hover {
+    letter-spacing: 4px;
+
+    transform: translateX(-5px);
+
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.5),
+        0 0 25px rgba(100, 120, 255, 0.3);
+}
+
+/* =========================================================
+   TÍTULO REGÍSTRATE
+   ========================================================= */
+
+.title-two__h1 {
+    margin-left: 1000px;
+    margin-right: 400px;
+
+    position: relative;
+    bottom: 1050px;
+
+    color: white;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 92px;
+
+    font-weight: 500;
+
+    animation:
+        entrarDesdeDerecha 1.3s ease-out 0.6s both,
+        respirarTituloDos 6s ease-in-out 2s infinite;
+
+    transition:
+        transform 0.4s ease,
+        text-shadow 0.4s ease;
+}
+
+.title-two__h1:hover {
+    transform: translateX(-8px) scale(1.01);
+
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(100, 120, 255, 0.5);
+}
+
+/* =========================================================
+   TEXTO DE REGISTRO
+   ========================================================= */
 
 .title-two__p {
     margin-left: 1000px;
     margin-right: 200px;
+
     position: relative;
+
     bottom: 1100px;
+
     color: white;
+
     font-family: 'Inter', sans-serif;
+
     font-size: 27.4px;
+
     font-weight: 400;
+
+    line-height: 1.5;
+
+    animation:
+        entrarDesdeDerecha 1.2s ease-out 0.8s both;
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
 }
+
+.title-two__p:hover {
+    transform: translateX(-8px);
+}
+
+/* =========================================================
+   ANCLA DE REGISTRATION
+   ========================================================= */
 
 #registration {
     margin: -200px 1000px;
 }
 
+/* =========================================================
+   BOTÓN REGISTRATION
+   ========================================================= */
+
 .menu_item--white {
     display: inline-block;
+
     padding: 20px 30px;
+
     background-color: #ffffff;
+
     color: rgb(0, 0, 0);
+
     border-radius: 100px;
+
     text-decoration: none;
+
     font-family: 'Inter', sans-serif;
+
     font-size: 30px;
+
     font-weight: 400;
+
     margin-left: 700px;
+
     position: relative;
+
     bottom: 1050px;
+
+    animation:
+        aparecerDesdeAbajo 1.2s ease-out 1s both,
+        flotacionBoton 4s ease-in-out 2s infinite;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.menu_item--white:hover {
+    transform: scale(1.08) translateY(-5px);
+
+    background-color: #ffffff;
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.5),
+        0 0 30px rgba(100, 120, 255, 0.5),
+        0 0 60px rgba(100, 120, 255, 0.2);
+}
+
+.menu_item--white:active {
+    transform: scale(0.96);
+}
+
+@keyframes agujeroNegro {
+
+    0% {
+        transform:
+            translateY(0px)
+            scale(1)
+            rotate(0deg);
+    }
+
+    40% {
+        transform:
+            translateY(-25px)
+            scale(1.08)
+            rotate(2deg);
+    }
+
+    70% {
+        transform:
+            translateY(-10px)
+            scale(0.95)
+            rotate(-2deg);
+    }
+
+    100% {
+        transform:
+            translateY(20px)
+            scale(1.1)
+            rotate(5deg);
+    }
+}
+
+
+@keyframes aparecerDesdeArriba {
+
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes entrarDesdeIzquierda {
+
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes entrarDesdeDerecha {
+
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@keyframes aparecerDesdeAbajo {
+
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes agujeroEntrada {
+
+    from {
+        opacity: 0;
+        transform: translateX(200px) scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes respirarTitulo {
+
+    0% {
+        text-shadow: 0 0 0 rgba(100, 120, 255, 0);
+        transform: scale(1);
+    }
+
+    50% {
+        text-shadow:
+            0 0 15px rgba(100, 120, 255, 0.35),
+            0 0 35px rgba(80, 100, 255, 0.15);
+
+        transform: scale(1.01);
+    }
+
+    100% {
+        text-shadow: 0 0 0 rgba(100, 120, 255, 0);
+        transform: scale(1);
+    }
+}
+
+
+@keyframes respirarTituloDos {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes flotacionBoton {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes imagenFlotante {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.menu_item::after {
+
+    content: "";
+
+    display: block;
+
+    width: 0;
+    height: 2px;
+
+    margin: auto;
+
+    background: white;
+
+    border-radius: 10px;
+
+    transition:
+        width 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.menu_item:hover::after {
+
+    width: 70%;
+
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.menu--b_item::before,
+.menu_item--white::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.6),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.6s ease;
+
+    pointer-events: none;
+}
+
+.menu--b_item:hover::before,
+.menu_item--white:hover::before {
+
+    left: 140%;
+}
+
+::selection {
+
+    background-color: #ffffff;
+
+    color: #010314;
+}
+
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #010314;
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #4c5275;
+
+    border-radius: 10px;
+
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8189b8;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
 }
